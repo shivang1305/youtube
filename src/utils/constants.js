@@ -7,6 +7,4 @@ export const YOUTUBE_LOGO_URL =
 export const USER_ICON_IMG =
   "https://cdn-icons-png.flaticon.com/512/666/666201.png";
 
-const API_KEY = "AIzaSyBblPa7aAxeTw7Vh1S-EuG5gLUV3sOZGZE";
-
-export const YOUTUBE_VIDEOS_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=${API_KEY}`;
+export const YOUTUBE_VIDEOS_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`;
