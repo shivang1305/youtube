@@ -35,7 +35,7 @@ const Head = () => {
       // this clear timeout kills the current timer each time the component rerenders
       clearTimeout(searchTimer);
     };
-  }, [searchQuery]);
+  });
 
   const getSearchSuggestions = async () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
@@ -79,7 +79,7 @@ const Head = () => {
           </button>
         </div>
         {showSuggestions && (
-          <div className="absolute bg-white px-5 py-2 w-[43rem] shadow-lg rounded-lg border border-gray-100">
+          <div className="absolute z-10 bg-white px-5 py-2 w-[43rem] shadow-lg rounded-lg border border-gray-100">
             <ul>
               {suggestions.map((suggestion) => {
                 return (
