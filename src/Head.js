@@ -26,19 +26,6 @@ const Head = () => {
     // if the time difference between 2 API calls is < 200ms
     // decine the API call
 
-    const getSearchSuggestions = async () => {
-      const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-      const jsonData = await data.json();
-
-      setSuggestions(jsonData[1]);
-
-      dispatch(
-        cacheResults({
-          [searchQuery]: jsonData[1],
-        })
-      );
-    };
-
     const searchTimer = setTimeout(() => {
       if (searchCache[searchQuery]) setSuggestions(searchCache[searchQuery]);
       else getSearchSuggestions();
@@ -48,7 +35,20 @@ const Head = () => {
       // this clear timeout kills the current timer each time the component rerenders
       clearTimeout(searchTimer);
     };
-  }, [setSuggestions, searchCache, searchQuery, dispatch]);
+  }, [searchQuery]);
+
+  const getSearchSuggestions = async () => {
+    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const jsonData = await data.json();
+
+    setSuggestions(jsonData[1]);
+
+    dispatch(
+      cacheResults({
+        [searchQuery]: jsonData[1],
+      })
+    );
+  };
 
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">
