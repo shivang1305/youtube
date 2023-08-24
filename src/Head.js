@@ -35,7 +35,7 @@ const Head = () => {
       // this clear timeout kills the current timer each time the component rerenders
       clearTimeout(searchTimer);
     };
-  });
+  }, [searchQuery]);
 
   const getSearchSuggestions = async () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
