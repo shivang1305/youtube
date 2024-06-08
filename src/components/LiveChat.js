@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ChatMessage from "./ChatMessage";
 import { useDispatch, useSelector } from "react-redux";
-import { addMessage } from "./utils/chatSlice";
-import { generateRandomName, getRandomMessage } from "./utils/helper";
+import { addMessage } from "../redux/slices/chatSlice";
+import { generateRandomName, getRandomMessage } from "../utils/helper";
 
 const LiveChat = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const LiveChat = () => {
     return () => {
       clearInterval(liveChatInterval);
     };
-  }, []);
+  }, [dispatch]);
 
   const handleSendChat = (e) => {
     e.preventDefault();

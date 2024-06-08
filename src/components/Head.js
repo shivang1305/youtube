@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { YOUTUBE_SEARCH_API } from "./utils/constants";
+import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import {
   HAMBURGER_LOGO_URL,
   USER_ICON_IMG,
   YOUTUBE_LOGO_URL,
-} from "./utils/constants";
-import { toggleMenu } from "./utils/appSlice";
-import { cacheResults } from "./utils/searchSlice";
+} from "../utils/constants";
+import { toggleMenu } from "../redux/slices/appSlice";
+import { cacheResults } from "../redux/slices/searchSlice";
 
 const Head = () => {
   const dispatch = useDispatch();

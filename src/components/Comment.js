@@ -1,5 +1,5 @@
 import React from "react";
-import { USER_ICON_IMG } from "./utils/constants";
+import { USER_ICON_IMG } from "../utils/constants";
 
 const Comment = ({ data }) => {
   const { name, text } = data;
