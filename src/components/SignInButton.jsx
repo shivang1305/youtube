@@ -1,11 +1,11 @@
 import React from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SignInButton = () => {
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSignIn = () => {
-    // navigate to login route
+    navigate("/login");
   };
 
   return (
