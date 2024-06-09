@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { GOOGLE_LOGO_IMG } from "../utils/constants";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -59,11 +60,7 @@ const Login = () => {
           onClick={handleGoogleLogin}
           className="w-full mt-4 bg-white text-gray-700 py-2 border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out flex items-center justify-center"
         >
-          <img
-            src="/path/to/google-icon.png"
-            alt="Google"
-            className="w-5 h-5 mr-2"
-          />
+          <img src={GOOGLE_LOGO_IMG} alt="Google" className="w-5 h-5 mr-2" />
           Login with Google
         </button>
       </div>
