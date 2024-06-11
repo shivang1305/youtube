@@ -1,16 +1,26 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GOOGLE_LOGO_IMG } from "../utils/constants";
+import axios from "axios";
 
 const Register = () => {
   const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleRegister = () => {
-    // Implement register functionality here
-    console.log("Registering with", name, email, password, confirmPassword);
+    console.log(`Registering with ${email} & ${password}`);
+    axios
+      .post("http://localhost:8000/api/v1/users/register", {
+        fullName: name,
+        username,
+        email,
+        password,
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
 
   const handleGoogleRegister = () => {
@@ -27,6 +37,13 @@ const Register = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
+          className="w-full px-4 py-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-600"
+        />
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username"
           className="w-full px-4 py-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-600"
         />
         <input
